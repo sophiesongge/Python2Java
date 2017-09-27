@@ -27,12 +27,14 @@ public class EntryPoint {
         return variables.getWorkflowVariables();
     }
 
+    //Start gateway server
     public void gateWayServerStart(){
         GatewayServer gatewayServer = new GatewayServer(this.getInstance());
         gatewayServer.start();
         System.out.println("GateWay Server Started");
     }
 
+    //Stop gateway server
     public void gateWayServerStop(){
         GatewayServer gatewayServer = new GatewayServer(this.getInstance());
         gatewayServer.shutdown();
