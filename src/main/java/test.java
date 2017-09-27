@@ -37,8 +37,16 @@ public class test {
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
+            if(process.exitValue() == 0){
+                System.out.println("Python Script Execution OK");
+            }else{
+                System.out.println("Python Script Execution ERROR");
+            }
         }catch (IOException e){
             e.printStackTrace();
+        }finally{
+            entryPoint.gateWayServerStop();
+            System.exit(-1);
         }
 
     }

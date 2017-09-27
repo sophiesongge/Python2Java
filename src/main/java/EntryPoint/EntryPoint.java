@@ -33,4 +33,10 @@ public class EntryPoint {
         System.out.println("GateWay Server Started");
     }
 
+    public void gateWayServerStop(){
+        GatewayServer gatewayServer = new GatewayServer(this.getInstance());
+        gatewayServer.shutdown();
+        System.out.println("GateWay Server Stopped");
+    }
+
 }
