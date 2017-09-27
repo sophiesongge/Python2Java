@@ -1,5 +1,6 @@
 package Context;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -17,10 +18,10 @@ public class Variables {
     private Variables() {
     }
 
-    private Map<String, String> variables = new HashMap<>();
+    private Map<String, Serializable> variables = new HashMap<>();
 
 
-    public Map<String, String> getWorkflowVariables() {
+    public Map<String, Serializable> getWorkflowVariables() {
         this.insertVariables("test0", "abc");
         this.insertVariables("test1", "def");
         return variables;
