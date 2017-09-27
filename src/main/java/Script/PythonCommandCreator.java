@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PythonCommandCreator {
 
-    private static final String PYTHON2_COMMAND = "python2";
+    private static final String PYTHON2_COMMAND = "python";
 
     private static final String PYTHON3_COMMAND = "python3";
 
