@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Python2Java.iml" filepath="$PROJECT_DIR$/.idea/modules/Python2Java.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Python2Java_main.iml" filepath="$PROJECT_DIR$/.idea/modules/Python2Java_main.iml" group="Python2Java" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Python2Java_test.iml" filepath="$PROJECT_DIR$/.idea/modules/Python2Java_test.iml" group="Python2Java" />
+    </modules>
+  </component>
+</project>
