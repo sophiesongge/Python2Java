@@ -19,6 +19,8 @@ public class PythonScriptExecutor {
         entryPoint.gateWayServerStart();
         try{
             Process process = Runtime.getRuntime().exec(command);
+
+            //To show the result
             InputStream fis = process.getInputStream();
             InputStreamReader isr = new InputStreamReader(fis);
             BufferedReader br = new BufferedReader(isr);
@@ -26,14 +28,18 @@ public class PythonScriptExecutor {
             while ((line = br.readLine()) != null) {
                 System.out.println(line);
             }
+
+            //To see the execution status
             if(process.exitValue() == 0){
                 System.out.println("Python ScriptEngine Execution OK");
             }else{
                 System.out.println("Python ScriptEngine Execution ERROR");
             }
+
         }catch (IOException e){
             e.printStackTrace();
         }finally{
+            //To shutdown the gateway and exist the JVM
             entryPoint.gateWayServerStop();
             System.exit(-1);
         }
