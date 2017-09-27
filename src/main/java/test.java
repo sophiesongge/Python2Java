@@ -5,8 +5,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import EntryPoint.EntryPoint;
-import Script.PythonScriptWriter;
-import Script.PythonCommandCreator;
+import ScriptEngine.PythonScriptWriter;
+import ScriptEngine.PythonCommandCreator;
 /**
  * @author Sophie Song
  * @since 27/09/2017
@@ -38,9 +38,9 @@ public class test {
                 System.out.println(line);
             }
             if(process.exitValue() == 0){
-                System.out.println("Python Script Execution OK");
+                System.out.println("Python ScriptEngine Execution OK");
             }else{
-                System.out.println("Python Script Execution ERROR");
+                System.out.println("Python ScriptEngine Execution ERROR");
             }
         }catch (IOException e){
             e.printStackTrace();
