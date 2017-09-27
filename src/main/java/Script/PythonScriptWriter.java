@@ -12,21 +12,22 @@ public class PythonScriptWriter {
     //Extension
     public static final String PYTHON_FILE_EXTENSION = ".py";
 
-    public static final String PYTHON_FILE_PATH = "/Users/sophiesong/Documents/workspace/activeeon/test.py ";
-
-    public File forceFileToDisk(String fileContent) throws IOException {
-        File perlTempFile = null;
+    public File writeFileToDisk(String fileContent) throws IOException {
+        File pythonTempFile = null;
         try {
-            perlTempFile = File.createTempFile("jsr223-cpython-", PYTHON_FILE_EXTENSION);
+            pythonTempFile = File.createTempFile("jsr223-cpython-", PYTHON_FILE_EXTENSION);
         } catch (IOException e) {
-            throw new IOException("Unable to create perl temp file. " + e);
+            throw new IOException("Unable to create python temp file. " + e);
         }
 
-        // Force perl script file to disk
-        Writer perlScriptFileWriter = new FileWriter(perlTempFile);
-        perlScriptFileWriter.write(fileContent);
-        perlScriptFileWriter.close();
+        // Write python script file to disk
+        Writer pythonScriptFileWriter = new FileWriter(pythonTempFile);
+        pythonScriptFileWriter.write("from py4j.java_gateway import JavaGateway"+"\n");
+        pythonScriptFileWriter.write("gateway = JavaGateway()"+"\n");
+        pythonScriptFileWriter.write("variables = gateway.entry_point.getVariables()"+"\n");
+        pythonScriptFileWriter.write(fileContent);
+        pythonScriptFileWriter.close();
 
-        return perlTempFile;
+        return pythonTempFile;
     }
 }
