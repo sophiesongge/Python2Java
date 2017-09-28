@@ -1,7 +1,6 @@
 import java.io.File;
 import java.io.IOException;
 
-import EntryPoint.EntryPoint;
 import ScriptEngine.PythonScriptExecutor;
 import ScriptEngine.PythonScriptWriter;
 import ScriptEngine.PythonCommandCreator;
