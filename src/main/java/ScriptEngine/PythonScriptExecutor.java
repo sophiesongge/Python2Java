@@ -41,7 +41,7 @@ public class PythonScriptExecutor {
         }finally{
             //To shutdown the gateway and exist the JVM
             entryPoint.gateWayServerStop();
-            System.exit(-1);
+            System.exit(0);
         }
     }
 
