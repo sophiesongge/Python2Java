@@ -10,7 +10,7 @@ import java.util.List;
  */
 public class PythonCommandCreator {
 
-    private static final String PYTHON2_COMMAND = "python2";
+    private static final String PYTHON2_COMMAND = "python";
 
     private static final String PYTHON3_COMMAND = "python3";
 
@@ -21,26 +21,19 @@ public class PythonCommandCreator {
      * @return A String which contains the command
      */
     public String createPythonExecutionCommand(File pythonFile, String pythonVersion) {
-        List<String> command = new ArrayList<>();
-
-        //Add python command
-        if(pythonVersion.equals("python3".toLowerCase())){
-            command.add(PYTHON3_COMMAND);
-        }else{
-            command.add(PYTHON2_COMMAND);
-        }
-
-        //Add file path
-        command.add(pythonFile.getPath());
-
         StringBuffer sb = new StringBuffer();
 
-        for(String word : command){
-            sb.append(word);
+        if(pythonVersion.equals("python3".toLowerCase())) {
+            sb.append(PYTHON3_COMMAND);
+            sb.append(" ");
+        }else{
+            sb.append(PYTHON2_COMMAND);
             sb.append(" ");
         }
 
-        return sb.toString().trim();
+        sb.append(pythonFile.getPath());
+
+        return sb.toString();
     }
 
 }
