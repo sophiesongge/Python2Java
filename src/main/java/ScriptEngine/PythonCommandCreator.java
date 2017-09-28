@@ -23,6 +23,7 @@ public class PythonCommandCreator {
     public String createPythonExecutionCommand(File pythonFile, String pythonVersion) {
         StringBuffer sb = new StringBuffer();
 
+        //Add Python Command
         if(pythonVersion.equals("python3".toLowerCase())) {
             sb.append(PYTHON3_COMMAND);
             sb.append(" ");
@@ -31,6 +32,7 @@ public class PythonCommandCreator {
             sb.append(" ");
         }
 
+        //Add the file path
         sb.append(pythonFile.getPath());
 
         return sb.toString();
