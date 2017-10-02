@@ -4,6 +4,8 @@ import java.io.IOException;
 import ScriptEngine.PythonScriptExecutor;
 import ScriptEngine.PythonScriptWriter;
 import ScriptEngine.PythonCommandCreator;
+import Utils.PythonVersionGetter;
+
 /**
  * @author Sophie Song
  * @since 27/09/2017
@@ -14,12 +16,16 @@ public class test {
     private static PythonCommandCreator pcc = new PythonCommandCreator();
     private static PythonScriptExecutor pse = new PythonScriptExecutor();
 
+    private static PythonVersionGetter pythonVersionGetter = new PythonVersionGetter();
+
     private final static String fileContent = "import numpy as np\n" +
             "a = np.arange(15).reshape(3, 5)\n" +
             "print(a)\n" +
             "print(variables[\"test0\"]+\" test success\")";
 
     public static void main(String[] args) throws IOException {
+        System.out.println(pythonVersionGetter.getPythonVersion("python3"));
+
         File pythonFile = psw.writeFileToDisk(fileContent);
         String command = pcc.createPythonExecutionCommand(pythonFile, "python3");
         System.out.println(command);
