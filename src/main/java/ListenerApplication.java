@@ -3,18 +3,11 @@ import java.util.List;
 
 import py4j.GatewayServer;
 
-public class StackEntryPoint {
-    private Stack stack;
-
-    public StackEntryPoint() {
-        stack = new Stack();
-        stack.push("Initial Item");
-        stack.push("1");
-    }
-
-    public Stack getStack() {
-        return stack;
-    }
+/**
+ * @author Sophie Song
+ * @since 13/10/2017
+ */
+public class ListenerApplication {
 
     List<ExampleListener> listeners = new ArrayList<>();
 
@@ -35,8 +28,9 @@ public class StackEntryPoint {
     }
 
     public static void main(String[] args) {
-        GatewayServer server = new GatewayServer(new StackEntryPoint(), 25335);
+        ListenerApplication application = new ListenerApplication();
+        GatewayServer server = new GatewayServer(application);
         server.start(true);
-        System.out.println("Gateway Server Started");
     }
+
 }

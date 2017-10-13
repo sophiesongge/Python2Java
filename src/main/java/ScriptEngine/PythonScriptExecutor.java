@@ -6,6 +6,7 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 
 import EntryPoint.EntryPoint;
+import py4j.GatewayServer;
 
 /**
  * @author Sophie Song
@@ -15,7 +16,9 @@ public class PythonScriptExecutor {
 
     public void pythonScriptExecutor(String command) throws IOException{
         EntryPoint entryPoint = EntryPoint.getInstance();
-        entryPoint.gateWayServerStart();
+        //GatewayServer gatewayServer = new GatewayServer(entryPoint);
+        entryPoint.getVariables().put("test0", "abc");
+        entryPoint.getVariables().put("test1", "def");
         try{
             Process process = Runtime.getRuntime().exec(command);
 
@@ -39,8 +42,8 @@ public class PythonScriptExecutor {
             e.printStackTrace();
         }finally{
             //To shutdown the gateway and exist the JVM
-            entryPoint.gateWayServerStop();
-            System.exit(0);
+//            entryPoint.gateWayServerStop();
+//            System.exit(0);
         }
     }
 
